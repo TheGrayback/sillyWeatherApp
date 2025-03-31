@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Погодное приложение</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <button class="settings-btn"></button>
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Настройки приложения</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label>Единицы измерения:</label>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="temperature" value="celsius" checked />
+                            °C
+                        </label>
+                        <label>
+                            <input type="radio" name="temperature" value="fahrenheit" />
+                            °F
+                        </label>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label>Цветовая тема:</label>
+                    <select class="theme-select">
+                        <option value="light">Светлая</option>
+                        <option value="dark">Тёмная</option>
+                        <option value="system">Как в системе</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn save-btn">Сохранить</button>
+                <button class="btn cancel-btn">Отмена</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

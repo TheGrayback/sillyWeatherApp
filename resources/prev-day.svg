@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   width="49.943775"
+   height="50.000008"
+   viewBox="0 0 0.49943775 0.50000008"
+   fill="none"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="Arrow / Arrow_Right_MD"
+     transform="matrix(-0.03121486,0,0,0.03571429,0.6242972,-0.17857145)">
+    <path
+       id="Vector"
+       d="m 5,12 h 14 m 0,0 -6,-6 m 6,6 -6,6"
+       stroke="#000000"
+       stroke-width="2"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       style="fill:#ffffff;stroke:#ffffff;stroke-opacity:1" />
+  </g>
+</svg>

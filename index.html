@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="weather-interface">
+            <div class="weather-header">
+                <span class="weather-font weather-city">Mumbai</span>
+                <span class="weather-font weather-day">Monday</span>
+            </div>
+            <div class="weather-content">
+                <button class="nav-btn" id="searchButton">
+                    <i data-lucide="search" class="lucide-icons"></i>
+                </button>
+                <button class="nav-btn">
+                    <i data-lucide="arrow-left" class="lucide-icons"></i>
+                </button>
+                <div class="weather-circle">
+                    <img
+                        class="weather-image"
+                        src="//cdn.weatherapi.com/weather/64x64/day/116.png"
+                        alt="clock"
+                    />
+                    <span class="weather-font weather-temp">451°F</span>
+                    <span class="weather-font weather-state">Rain</span>
+                </div>
+                <button class="nav-btn">
+                    <i data-lucide="arrow-right" class="lucide-icons"></i>
+                </button>
+                <button class="nav-btn">
+                    <i data-lucide="menu" class="lucide-icons"></i>
+                </button>
+            </div>
+            <div
+                class="weather-input"
+                id="cityInput"
+                style="visibility: hidden"
+            >
+                <input type="text" placeholder="Your city?" />
+            </div>
+        </div>
+
+        <div class="modal-window">
+            <div class="modal modal-font" id="settingsModal">
+                <div class="modal-header">
+                    <h3 class="modal-settings-header-font">Settings</h3>
+                    <button class="nav-btn modal-close-btn">
+                        <i
+                            data-lucide="x"
+                            class="lucide-icons lucide-icons-modal"
+                        ></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="settings-group">
+                        <label
+                            for="temperature-select"
+                            class="modal-temperature-font"
+                            >Temperature units:</label
+                        >
+                        <div class="radio-group" id="temperature-select">
+                            <span>
+                                <input
+                                    type="radio"
+                                    name="temperature"
+                                    id="celsius"
+                                    checked
+                                /><span class="modal-temperature-font">°C</span>
+                            </span>
+                            <span>
+                                <input
+                                    type="radio"
+                                    name="temperature"
+                                    id="fahrenheit"
+                                /><span class="modal-temperature-font">°F</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <label for="colorTheme" class="modal-color-theme-font"
+                            >Color theme</label
+                        >
+                        <select
+                            name="theme-selector"
+                            id="colorTheme"
+                            class="theme-selector"
+                        >
+                            <option value="dark">Dark theme</option>
+                            <option value="white">White theme</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span class="modal-copyright-font"
+                        >Lorem ipsum dolor sit amet.</span
+                    >
+                </div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
