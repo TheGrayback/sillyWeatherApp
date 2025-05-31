@@ -127,8 +127,17 @@ body {
 .modal-window {
     max-width: 400px;
     width: 90%;
-    bottom: 70px;
-    right: 100px
+    left: 50%;
+    top: 50%;
+    position: fixed;
+    transform: translate(-50%, -10%);
+    display: none;
+    opacity: 0;
+}
+
+.modal-window.open {
+    display: block;
+    opacity: 1;
 }
 
 .modal {
