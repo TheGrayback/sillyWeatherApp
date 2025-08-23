@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<style>
+  body{
+    margin:0;
+    min-height:100vh;
+    background:#000; /* сама страница чёрная */
+    display:flex;
+    gap:24px;
+    align-items:flex-start;
+    padding:40px;
+    font-family: Arial, sans-serif;
+  }
+
+  /* общая картинка, которая будет "видна" в плашках — можно заменить на свою */
+  :root{
+    --bg-url: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1400&q=80');
+  }
+
+  /* карточки — у каждой свой фон, но с фиксированной привязкой окна */
+  .card{
+    width:360px;
+    padding:24px;
+    border-radius:16px;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    /* здесь — сама магия: одна и та же картинка, фиксированная относительно окна */
+    background-image: var(--bg-url);
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    /* затемняющая плашка поверх фоновой картинки */
+    background-color: rgba(0,0,0,0.65); /* основной тёмный слой */
+    background-blend-mode: overlay; /* смешиваем картинку и затемнение */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    border:1px solid rgba(255,255,255,0.04);
+  }
+
+  /* дополнительный вариант — добавить размытие "glass" эффект */
+  .card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+  }
+
+  /* примитивный контент */
+  .title{font-size:18px;margin-bottom:8px;}
+  .temp{font-size:36px;font-weight:700;margin-bottom:8px;}
+  .meta{font-size:13px;opacity:0.9;}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="title">Погода</div>
+    <div class="temp">28°C</div>
+    <div class="meta">Clear sky — California, US</div>
+  </div>
+
+  <div class="card">
+    <div class="title">Другой блок</div>
+    <div class="temp">—</div>
+    <div class="meta">Тоже видно тот же фон</div>
+  </div>
+</body>
+</html>
