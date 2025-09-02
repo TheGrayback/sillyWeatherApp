@@ -1,4 +1,5 @@
-import axios from 'axios';
+import { GetCoordinates, GetWeather } from './api';
+import { SetGeolocation, SetTemp, SetWeatherCondition } from './ui';
 
 lucide.createIcons();
 
@@ -9,40 +10,8 @@ cityInput.addEventListener('keydown', async (event) => {
         const city = cityInput.value.trim();
         const coords = await GetCoordinates(city);
         const weather = await GetWeather(coords.latitude, coords.longitude);
-        SetTemp(weather.current.temperature_2m);
+        SetTemp(weather.current.temperature_2m, weather.current_units.temperature_2m);
+        SetWeatherCondition(weather.current.weather_code)
+        SetGeolocation(coords.name, coords.country_code)
     }
 });
-
-async function GetCoordinates(city) {
-    const response = await axios.get(
-        'https://geocoding-api.open-meteo.com/v1/search',
-        {
-            params: {
-                name: city,
-                count: 1,
-                language: 'en',
-                format: 'json',
-            },
-        }
-    );
-    const { admin1, country, name, latitude, longitude } =
-        response.data.results[0];
-    return { admin1, country, name, latitude, longitude };
-}
-
-async function GetWeather(lat, lon) {
-    const response = await axios.get('https://api.open-meteo.com/v1/forecast', {
-        params: {
-            latitude: lat,
-            longitude: lon,
-            current: 'temperature_2m',
-        },
-    });
-    console.log(response.data);
-    return response.data;
-}
-
-function SetTemp(temp) {
-    const tempValue = document.getElementById('temperature-value');
-    tempValue.innerHTML = `${temp}<sup>&deg;c</sup>`;
-}
