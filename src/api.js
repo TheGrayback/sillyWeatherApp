@@ -25,6 +25,7 @@ export async function GetWeather(lat, lon) {
             longitude: lon,
             current: 'weather_code,temperature_2m',
             forecast_days: 1,
+            timezone: 'auto',
         },
     });
     console.log('Weather data: ', response.data);

@@ -2,9 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/jpg" href="/profile-picture/spurkl3.jpg" />
+        <link rel="icon" type="image/jpg" href="/favicon/spurkl3_favicon.jpg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/src/style.css" />
+        <link
+            rel="stylesheet"
+            href="public/weather-icons/small/css/weather-icons.min.css"
+        />
         <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
         <title>LiquidAss Weather App</title>
     </head>
@@ -93,7 +97,7 @@
                                 class="h-12 w-12 overflow-hidden rounded-full shadow-md hover:h-20 hover:w-20"
                             >
                                 <img
-                                    src="/profile-picture/spurkl.jpg"
+                                    src="/profile-pictures/spurkl.jpg"
                                     alt="User picture"
                                 />
                             </button>
@@ -102,7 +106,7 @@
                                 class="absolute inset-0 scale-120 overflow-hidden rounded-full opacity-30 blur-sm"
                             >
                                 <img
-                                    src="/profile-picture/spurkl.jpg"
+                                    src="/profile-pictures/spurkl.jpg"
                                     alt="Blured profile picture"
                                 />
                             </div>
@@ -110,13 +114,13 @@
                     </div>
                 </nav>
             </aside>
-            <main class="grid w-full gap-4 md:col-span-11 md:grid-cols-12">
-                <!-- Basic weather report -->
+            <main class="grid w-full gap-4 grid-cols-12" >
+                <!-- Basic weather report card -->
                 <section
-                    class="card-background col-span-1 flex flex-row rounded-3xl p-6 md:col-span-3"
+                    class="card-background col-span-4 flex flex-row rounded-3xl p-5"
                 >
                     <div
-                        class="flex grow flex-col pt-2 font-sans font-medium text-white"
+                        class="flex grow flex-col font-sans font-medium text-white"
                     >
                         <!-- Future search modal -->
                         <div class="relative flex flex-row">
@@ -139,11 +143,12 @@
                             />
                         </div>
                         <!-- Weather icon -->
-                        <div class="pt-4">
+                        <div class="pt-2">
                             <img
                                 class="h-30 w-30"
-                                src="/weather-icons/clear-day.svg"
+                                src="/weather-icons/large/clear-day.svg"
                                 alt=""
+                                id="weather-condition-icon-large"
                             />
                         </div>
                         <!-- Temperature -->
@@ -155,8 +160,15 @@
                         </span>
                         <!-- Weather condition -->
                         <div class="inline-flex items-center gap-4">
-                            <i id="weather-condition-icon" data-lucide="sun" class="h-6 w-6 text-white"></i>
-                            <span class="text-sm" id="weather-condition-description">
+                            <i
+                                id="weather-condition-icon"
+                                data-lucide="sun"
+                                class="h-6 w-6 text-white"
+                            ></i>
+                            <span
+                                class="text-sm"
+                                id="weather-condition-description"
+                            >
                                 Sunny
                             </span>
                         </div>
@@ -167,12 +179,14 @@
                             ></div>
                         </div>
                         <!-- Geolocation -->
-                        <div class="inline-flex items-center pb-3 gap-4">
+                        <div class="inline-flex items-center gap-4 pb-3">
                             <i
                                 data-lucide="map-pin"
                                 class="h-6 w-6 text-white"
                             ></i>
-                            <span class="text-sm" id="user-geolocation">Monstadt, TV</span>
+                            <span class="text-sm" id="user-geolocation"
+                                >Monstadt, TV</span
+                            >
                         </div>
                         <!-- Current date -->
                         <div class="inline-flex items-center gap-4">
@@ -180,7 +194,7 @@
                                 data-lucide="calendar-days"
                                 class="h-6 w-6 text-white"
                             ></i>
-                            <span class="text-sm">
+                            <span class="text-sm" id="user-time">
                                 1 August, 2025
                                 <span class="font-bold">14:05</span>
                             </span>
@@ -188,16 +202,23 @@
                     </div>
                 </section>
                 <section
-                    class="card-background col-span-1 rounded-3xl md:col-span-9"
+                    class="card-background col-span-8 rounded-3xl"
+                ></section>
+                <!-- Seven days forecast card -->
+                <section
+                    class="card-background col-span-4 flex flex-row rounded-3xl p-5"
                 ></section>
                 <section
-                    class="card-background col-span-1 rounded-3xl md:col-span-4"
-                ></section>
-                <section
-                    class="card-background col-span-1 rounded-3xl md:col-span-8"
+                    class="card-background col-span-8 rounded-3xl"
                 ></section>
             </main>
         </div>
         <script type="module" src="/src/main.js"></script>
+        <!-- Large weather icons by 
+        @ Bas Milius - https://github.com/basmilius/weather-icons?tab=readme-ov-file -->
+        <!-- Utility icons by 
+        @ Lucide - https://lucide.dev -->
+        <!-- Small weather icons by
+        @  -->
     </body>
 </html>

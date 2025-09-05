@@ -11,7 +11,7 @@
 
 .card-background::before {
     content: '';
-    background-image: url('/background.png');
+    background-image: url('/background-pictures/background.png');
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
