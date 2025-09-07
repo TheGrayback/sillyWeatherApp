@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="/src/style.css" />
         <link
             rel="stylesheet"
-            href="public/weather-icons/small/css/weather-icons.min.css"
+            href="/weather-icons/small/css/weather-icons.min.css"
         />
         <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
         <title>LiquidAss Weather App</title>
@@ -114,15 +114,16 @@
                     </div>
                 </nav>
             </aside>
-            <main class="grid w-full gap-4 grid-cols-12" >
-                <!-- Basic weather report card -->
+            <main class="grid w-full grid-cols-12 gap-4">
+                <!-- Today's weather report card -->
                 <section
                     class="card-background col-span-4 flex flex-row rounded-3xl p-5"
                 >
+                    <!-- Day 0 -->
                     <div
                         class="flex grow flex-col font-sans font-medium text-white"
                     >
-                        <!-- Future search modal -->
+                        <!-- Search modal (WIP) -->
                         <div class="relative flex flex-row">
                             <!-- Search button -->
                             <button
@@ -163,7 +164,7 @@
                             <i
                                 id="weather-condition-icon"
                                 data-lucide="sun"
-                                class="h-6 w-6 text-white"
+                                class="h-6 w-6"
                             ></i>
                             <span
                                 class="text-sm"
@@ -180,20 +181,14 @@
                         </div>
                         <!-- Geolocation -->
                         <div class="inline-flex items-center gap-4 pb-3">
-                            <i
-                                data-lucide="map-pin"
-                                class="h-6 w-6 text-white"
-                            ></i>
+                            <i data-lucide="map-pin" class="h-6 w-6"></i>
                             <span class="text-sm" id="user-geolocation"
                                 >Monstadt, TV</span
                             >
                         </div>
                         <!-- Current date -->
                         <div class="inline-flex items-center gap-4">
-                            <i
-                                data-lucide="calendar-days"
-                                class="h-6 w-6 text-white"
-                            ></i>
+                            <i data-lucide="calendar-days" class="h-6 w-6"></i>
                             <span class="text-sm" id="user-time">
                                 1 August, 2025
                                 <span class="font-bold">14:05</span>
@@ -204,10 +199,120 @@
                 <section
                     class="card-background col-span-8 rounded-3xl"
                 ></section>
-                <!-- Seven days forecast card -->
+                <!-- Weekly forecast card -->
                 <section
-                    class="card-background col-span-4 flex flex-row rounded-3xl p-5"
-                ></section>
+                    class="card-background col-span-4 flex flex-col overflow-y-auto rounded-3xl p-5 text-white"
+                >
+                    <!-- 7 days forecasts -->
+                    <!-- Day 1 -->
+                    <div
+                        class="grid grid-cols-[auto_auto_auto_auto_auto_1fr] items-center justify-around gap-2"
+                        day-data="0"
+                    >
+                        <!-- Weather forecast icon -->
+                        <img
+                            class="forecast-icon h-15 w-15"
+                            src="/weather-icons/large/clear-day.svg"
+                            alt=""
+                        />
+                        <!-- Weather forecast temps -->
+                        <span
+                            class="forecast-temp-max text-3xl leading-tight"
+                        >
+                            -28<sup>&deg;c</sup>
+                        </span>
+                        /
+                        <span
+                            class="forecast-temp-min text-xl leading-tight text-gray-400"
+                            >-12<sup>&deg;c</sup>
+                        </span>
+                        <!-- Weather forecast date -->
+                        <!-- Day/Month -->
+                        <span
+                            class="forecast-day-month text-center text-sm text-gray-300"
+                        >
+                            10 September
+                        </span>
+                        <!-- Day of the week -->
+                        <span
+                            class="forecast-weekday text-center text-sm text-gray-300"
+                        >
+                            Wednesday
+                        </span>
+                    </div>
+                    <!-- Day 2 -->
+                    <div
+                        class="grid grid-cols-[auto_auto_auto_auto_1fr_auto] items-center justify-around gap-2"
+                        day-data="1"
+                    >
+                        <!-- Weather forecast icon -->
+                        <img
+                            class="forecast-icon h-15 w-15"
+                            src="/weather-icons/large/clear-day.svg"
+                            alt=""
+                        />
+                        <!-- Weather forecast temps -->
+                        <span
+                            class="forecast-temp-max text-[30px] leading-tight"
+                        >
+                            28<sup>&deg;c</sup>
+                        </span>
+                        /
+                        <span
+                            class="forecast-temp-min text-[20px] leading-tight text-gray-400"
+                            >12<sup>&deg;c</sup>
+                        </span>
+                        <!-- Weather forecast date -->
+                        <!-- Day/Month -->
+                        <span
+                            class="forecast-day-month text-center text-[15px] text-gray-300"
+                        >
+                            1 September
+                        </span>
+                        <!-- Day of the week -->
+                        <span
+                            class="forecast-weekday text-center text-[15px] text-gray-300"
+                        >
+                            Tuesday
+                        </span>
+                    </div>
+                    <!-- Day 3 -->
+                    <div
+                        class="grid grid-cols-[auto_auto_auto_auto_1fr_auto] items-center justify-around gap-2"
+                        day-data="2"
+                    >
+                        <!-- Weather forecast icon -->
+                        <img
+                            class="forecast-icon h-15 w-15"
+                            src="/weather-icons/large/clear-day.svg"
+                            alt=""
+                        />
+                        <!-- Weather forecast temps -->
+                        <span
+                            class="forecast-temp-max text-[30px] leading-tight"
+                        >
+                            28<sup>&deg;c</sup>
+                        </span>
+                        /
+                        <span
+                            class="forecast-temp-min text-[20px] leading-tight text-gray-400"
+                            >12<sup>&deg;c</sup>
+                        </span>
+                        <!-- Weather forecast date -->
+                        <!-- Day/Month -->
+                        <span
+                            class="forecast-day-month text-center text-[15px] text-gray-300"
+                        >
+                            1 September
+                        </span>
+                        <!-- Day of the week -->
+                        <span
+                            class="forecast-weekday text-center text-[15px] text-gray-300"
+                        >
+                            Tuesday
+                        </span>
+                    </div>
+                </section>
                 <section
                     class="card-background col-span-8 rounded-3xl"
                 ></section>
@@ -219,6 +324,6 @@
         <!-- Utility icons by 
         @ Lucide - https://lucide.dev -->
         <!-- Small weather icons by
-        @  -->
+        @ erikflowers - https://github.com/erikflowers/weather-icons -->
     </body>
 </html>

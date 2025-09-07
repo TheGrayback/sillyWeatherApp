@@ -24,8 +24,9 @@ export async function GetWeather(lat, lon) {
             latitude: lat,
             longitude: lon,
             current: 'weather_code,temperature_2m',
-            forecast_days: 1,
+            forecast_days: 8,
             timezone: 'auto',
+            daily: 'temperature_2m_max,temperature_2m_min',
         },
     });
     console.log('Weather data: ', response.data);

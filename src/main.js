@@ -1,5 +1,5 @@
 import { GetCoordinates, GetWeather } from './api';
-import { SetGeolocation, SetTemp, setTime, SetWeatherCondition } from './ui';
+import { setForecast, SetGeolocation, SetTemp, setTime, SetWeatherCondition } from './ui';
 
 lucide.createIcons();
 
@@ -17,5 +17,6 @@ cityInput.addEventListener('keydown', async (event) => {
         SetWeatherCondition(weather.current.weather_code);
         SetGeolocation(coordinates.name, coordinates.country_code);
         setTime(weather.current.time);
+        setForecast(weather.daily.time, weather.daily.temperature_2m_max, weather.daily.temperature_2m_min);
     }
 });
