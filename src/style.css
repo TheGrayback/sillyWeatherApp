@@ -20,3 +20,7 @@
     inset: 0;
     z-index: -1;
 }
+
+.grid-cols-forecast {
+    @apply grid-cols-[40px_minmax(50px,100px)_5px_minmax(50px,65px)_minmax(90px,105px)_minmax(90px,90px)]
+}
