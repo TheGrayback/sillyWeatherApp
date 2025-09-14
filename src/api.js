@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export async function GetCoordinates(city) {
+export async function getCoordinates(city) {
     const response = await axios.get(
         'https://geocoding-api.open-meteo.com/v1/search',
         {
@@ -18,7 +18,7 @@ export async function GetCoordinates(city) {
     return { country_code, name, latitude, longitude };
 }
 
-export async function GetWeather(lat, lon) {
+export async function getWeather(lat, lon) {
     const response = await axios.get('https://api.open-meteo.com/v1/forecast', {
         params: {
             latitude: lat,
@@ -26,7 +26,7 @@ export async function GetWeather(lat, lon) {
             current: 'weather_code,temperature_2m',
             forecast_days: 8,
             timezone: 'auto',
-            daily: 'temperature_2m_max,temperature_2m_min',
+            daily: 'temperature_2m_max,temperature_2m_min,weather_code',
         },
     });
     console.log('Weather data: ', response.data);

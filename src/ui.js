@@ -1,14 +1,14 @@
 import { weatherCodeDescription } from './utils/weatherCodes';
 
-const base = import.meta.env.BASE_URL;
+const BASE_URL = import.meta.env.BASE_URL;
 
-export function SetTemp(temperatureValue, temperatureUnit) {
+export function setTemp(temperatureValue, temperatureUnit) {
     const tempValue = document.getElementById('temperature-value');
     tempValue.innerHTML =
         `${temperatureValue}<sup>${temperatureUnit}</sup>` || '---';
 }
 
-export function SetWeatherCondition(code) {
+export function setWeatherCondition(code) {
     const weatherDesc = document.getElementById(
         'weather-condition-description'
     );
@@ -22,19 +22,18 @@ export function SetWeatherCondition(code) {
         'data-lucide',
         weatherCodeDescription[code].day.icon
     );
-    weatherIconLarge.src = `${base}${weatherCodeDescription[code].day.largeIcon}`;
-    console.log(weatherIconLarge.src, base);
+    weatherIconLarge.src = `${BASE_URL}${weatherCodeDescription[code].day.largeIcon}`;
     lucide.createIcons();
 }
 
-export function SetGeolocation(city, country_code) {
+export function setGeolocation(city, country_code) {
     const userGeolocation = document.getElementById('user-geolocation');
     userGeolocation.textContent = `${city}, ${country_code}`;
 }
 
-export function setTime(ISOTime) {
+export function setTime(isoTime) {
     const userTime = document.getElementById('user-time');
-    const date = new Date(ISOTime);
+    const date = new Date(isoTime);
     const dateOptions = {
         day: 'numeric',
         month: 'long',
@@ -44,20 +43,15 @@ export function setTime(ISOTime) {
         hours: '2-digit',
         minutes: '2-digit',
     };
-    const dateFormatted = new Intl.DateTimeFormat('en-GB', dateOptions).format(
-        date
-    );
-    const timeFormatted = new Intl.DateTimeFormat('en-Gb', timeOptions).format(
-        date
-    );
+    const dateFormatted = _formatTime('en-Gb', dateOptions, date);
+    const timeFormatted = _formatTime('en-Gb', timeOptions, date);
     userTime.innerHTML =
         `${dateFormatted}<span class="font-bold">, ${timeFormatted}</span>` ||
         '---';
 }
 
-export function setForecast(forecastDate, forecastTempMax, forecastTempMin) {
+export function setForecast(forecastDate, forecastTempMax, forecastTempMin, weatherCode) {
     const day = document.querySelectorAll('[day-data]');
-    console.log(day);
     day.forEach((forecastDay, dayIndex) => {
         const dataIndex = dayIndex + 1;
         const date = new Date(forecastDate[dataIndex]);
@@ -68,14 +62,9 @@ export function setForecast(forecastDate, forecastTempMax, forecastTempMin) {
         const weekdayOptions = {
             weekday: 'long',
         };
-        const dateFormatted = new Intl.DateTimeFormat(
-            'en-GB',
-            dateOptions
-        ).format(date);
-        const weekdayFormatted = new Intl.DateTimeFormat(
-            'en-GB',
-            weekdayOptions
-        ).format(date);
+        const dateFormatted = _formatTime('en-Gb', dateOptions, date);
+        const weekdayFormatted = _formatTime('en-Gb', weekdayOptions, date);
+        forecastDay.querySelector('.forecast-icon').src = `${BASE_URL}${weatherCodeDescription[weatherCode[dataIndex]].day.largeIcon}`
         forecastDay.querySelector('.forecast-day-month').textContent =
             dateFormatted;
         forecastDay.querySelector('.forecast-weekday').textContent =
@@ -84,6 +73,10 @@ export function setForecast(forecastDate, forecastTempMax, forecastTempMin) {
             `${Math.round(forecastTempMax[dataIndex])}<sup>&deg;c</sup>`;
         forecastDay.querySelector('.forecast-temp-min').innerHTML =
             `${Math.round(forecastTempMin[dataIndex])}<sup>&deg;c</sup>`;
-        console.log({ dateFormatted, weekdayFormatted });
     });
+}
+
+// Silly useless function but it itched my brain
+function _formatTime (locale = 'en-GB', options, baseDate) {
+    return new Intl.DateTimeFormat(locale, options).format(baseDate)
 }

@@ -22,5 +22,18 @@
 }
 
 .grid-cols-forecast {
-    @apply grid-cols-[40px_minmax(50px,100px)_5px_minmax(50px,65px)_minmax(90px,105px)_minmax(90px,90px)]
+    @apply grid-cols-[40px_minmax(50px,100px)_5px_minmax(50px,65px)_minmax(90px,105px)_minmax(90px,90px)];
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.custom-scrollbar:hover::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
 }
