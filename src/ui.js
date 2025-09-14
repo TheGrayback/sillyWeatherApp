@@ -1,5 +1,7 @@
 import { weatherCodeDescription } from './utils/weatherCodes';
 
+const base = import.meta.env.BASE_URL;
+
 export function SetTemp(temperatureValue, temperatureUnit) {
     const tempValue = document.getElementById('temperature-value');
     tempValue.innerHTML =
@@ -20,10 +22,8 @@ export function SetWeatherCondition(code) {
         'data-lucide',
         weatherCodeDescription[code].day.icon
     );
-    weatherIconLarge.setAttribute(
-        'src',
-        weatherCodeDescription[code].day.largeIcon
-    );
+    weatherIconLarge.src = `${base}${weatherCodeDescription[code].day.largeIcon}`;
+    console.log(weatherIconLarge.src, base);
     lucide.createIcons();
 }
 
@@ -84,6 +84,6 @@ export function setForecast(forecastDate, forecastTempMax, forecastTempMin) {
             `${Math.round(forecastTempMax[dataIndex])}<sup>&deg;c</sup>`;
         forecastDay.querySelector('.forecast-temp-min').innerHTML =
             `${Math.round(forecastTempMin[dataIndex])}<sup>&deg;c</sup>`;
-            console.log({dateFormatted, weekdayFormatted});
+        console.log({ dateFormatted, weekdayFormatted });
     });
 }
