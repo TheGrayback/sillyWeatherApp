@@ -2,7 +2,9 @@
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 
-export default defineConfig({
+export default defineConfig(({ command }) => {
+  return {
     plugins: [tailwindcss()],
-    base: '/sillyWeatherApp/'
+    base: command === 'build' ? '/sillyWeatherApp/' : '/',
+  };
 });
