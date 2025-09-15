@@ -18,13 +18,14 @@ export async function getCoordinates(city) {
     return { country_code, name, latitude, longitude };
 }
 
-export async function getWeather(lat, lon) {
+export async function getWeather(lat, lon, forecastDays = 8) {
+    forecastDays++;
     const response = await axios.get('https://api.open-meteo.com/v1/forecast', {
         params: {
             latitude: lat,
             longitude: lon,
             current: 'weather_code,temperature_2m',
-            forecast_days: 8,
+            forecast_days: forecastDays,
             timezone: 'auto',
             daily: 'temperature_2m_max,temperature_2m_min,weather_code',
         },
