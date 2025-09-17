@@ -15,6 +15,9 @@ export function mapWeatherApiResponse(weatherResponse, coordinates) {
             tempMax: weatherResponse.daily.temperature_2m_max[index],
             tempMin: weatherResponse.daily.temperature_2m_min[index],
             code: weatherResponse.daily.weather_code[index],
+            dailyUV: weatherResponse.daily.uv_index_max[index],
+            sunrise: weatherResponse.daily.sunrise[index],
+            sunset: weatherResponse.daily.sunset[index],
         })),
     };
 }
