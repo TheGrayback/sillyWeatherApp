@@ -1,3 +1,4 @@
+import { uvIndexCodes } from './utils/uvIndexCodes';
 import { weatherCodeDescription } from './utils/weatherCodes';
 
 const BASE_URL = import.meta.env.BASE_URL;
@@ -10,7 +11,6 @@ export function setCurrentWeather({ current, location }) {
 }
 
 export function newSetForecast({ forecast }) {
-    console.log(forecast);
     const container = document.getElementById('forecastContainer');
     const daysNumberText = document.getElementById('forecastDaysNumber');
     daysNumberText.textContent = `${forecast.length - 1}-days forecast`;
@@ -72,6 +72,25 @@ export function newSetForecast({ forecast }) {
     }
 }
 
+export function setAdditionalWeatherConditions ({forecast}) {
+    setUVRadiation(forecast)
+    
+}
+
+function setUVRadiation (forecast) {
+    console.log(forecast[0].dailyUV.toFixed(0));
+    const uvIcon = document.getElementById('UVIndexIcon')
+    const uvLevel = document.getElementById('UVIndexLevel')
+    const uvCategory = document.getElementById('UVIndexCategory')
+    const uvHint = document.getElementById('UVIndexHint')
+    uvIcon.src = `${BASE_URL}${uvIndexCodes[forecast[0].dailyUV.toFixed(0)].icon}`
+    uvIcon.alt = `${uvIndexCodes[forecast[0].dailyUV.toFixed(0)].alt}`
+    uvLevel.textContent = `${forecast[0].dailyUV.toFixed(0)}`
+    uvCategory.textContent = `${uvIndexCodes[forecast[0].dailyUV.toFixed(0)].category}`
+    uvCategory.classList = `text-md font-bold ${uvIndexCodes[forecast[0].dailyUV.toFixed(0)].color}`
+    uvHint.textContent = `${uvIndexCodes[forecast[0].dailyUV.toFixed(0)].hint}`
+}
+
 // Silly useless function but it itched my brain
 function _formatTime(locale = 'en-GB', options, baseDate) {
     return new Intl.DateTimeFormat(locale, options).format(baseDate);
@@ -107,7 +126,6 @@ function setGeolocation(city, country_code) {
 }
 
 function setTime(isoTime) {
-    console.log(isoTime);
     const userTime = document.getElementById('user-time');
     const date = new Date(`${isoTime}`);
     const dateOptions = {
@@ -125,7 +143,6 @@ function setTime(isoTime) {
         'en-GB',
         timeOptions
     ).format(date);
-    console.log(timeFormatted, dateFormatted, testTimeFormatted);
     userTime.innerHTML =
         `${dateFormatted}<span class="font-bold">, ${timeFormatted}</span>` ||
         '---';

@@ -202,8 +202,87 @@
                 </section>
                 <!-- Weather details card (extra metrics: humidity, radiation, etc.) -->
                 <section
-                    class="card-background col-span-8 rounded-3xl"
-                ></section>
+                    class="card-background col-span-8 grid grid-cols-3 gap-2 rounded-3xl p-2 text-white"
+                >
+                    <!-- Solar radiation (UV) card -->
+                    <div
+                        class="col-span-1 flex w-[285px] flex-col place-self-center rounded-2xl bg-white/10 p-2"
+                    >
+                        <span
+                            class="text-center text-xs font-semibold tracking-wide uppercase opacity-70"
+                            >UV Index</span
+                        >
+                        <div
+                            class="flex flex-row items-center justify-center gap-1"
+                        >
+                            <img
+                                src="/weather-icons/large/uv-index-1.svg"
+                                alt="UV-Index-8"
+                                class="h-15 w-15"
+                                id="UVIndexIcon"
+                            />
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-2xl font-bold"
+                                    id="UVIndexLevel"
+                                    >8</span
+                                >
+                                <span
+                                    class="text-md font-bold text-violet-400"
+                                    id="UVIndexCategory"
+                                    >Very High</span
+                                >
+                            </div>
+                        </div>
+                        <span
+                            class="text-center text-xs opacity-70"
+                            id="UVIndexHint"
+                            >Protection essential: SPF 30+, hat,
+                            sunglasses</span
+                        >
+                    </div>
+
+                    <!-- Wind card -->
+                    <div class="col-span-1 flex flex-col place-self-center">
+                        <img
+                            src="weather-icons/large/uv-index-1.svg'"
+                            alt="UV-Index-1"
+                        />
+                        <span></span>
+                    </div>
+                    <!-- Apparent temperature card -->
+                    <div class="col-span-1 flex flex-col place-self-center">
+                        <img
+                            src="weather-icons/large/uv-index-1.svg'"
+                            alt="UV-Index-1"
+                        />
+                        <span></span>
+                    </div>
+                    <!-- Visibility card-->
+                    <div class="col-span-1 flex flex-col place-self-center">
+                        <img
+                            src="weather-icons/large/uv-index-1.svg'"
+                            alt="UV-Index-1"
+                        />
+                        <span></span>
+                    </div>
+                    <!-- Sunrise/sunset card-->
+                    <div class="col-span-1 flex flex-col place-self-center">
+                        <img
+                            src="weather-icons/large/uv-index-1.svg'"
+                            alt="UV-Index-1"
+                        />
+                        <span></span>
+                    </div>
+                    <!-- Humidity card-->
+                    <div class="col-span-1 flex flex-col place-self-center">
+                        <img
+                            src="weather-icons/large/uv-index-1.svg'"
+                            alt="UV-Index-1"
+                        />
+                        <span></span>
+                    </div>
+                </section>
                 <!-- Weekly forecast card -->
                 <section class="col-span-4 flex max-h-[60vh] flex-col gap-4">
                     <div
