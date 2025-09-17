@@ -9,36 +9,11 @@ export function setCurrentWeather({ current, location }) {
     setTime(current.time);
 }
 
-export function setForecast({ forecast }) {
-    const day = document.querySelectorAll('[day-data]');
-    day.forEach((forecastDay, dayIndex) => {
-        const dataIndex = dayIndex + 1;
-        const date = new Date(forecast[dataIndex].date);
-        const dateOptions = {
-            day: 'numeric',
-            month: 'short',
-        };
-        const weekdayOptions = {
-            weekday: 'short',
-        };
-        const dateFormatted = _formatTime('en-Gb', dateOptions, date);
-        const weekdayFormatted = _formatTime('en-Gb', weekdayOptions, date);
-        forecastDay.querySelector('.forecast-icon').src =
-            `${BASE_URL}${weatherCodeDescription[forecast[dataIndex].code].day.largeIcon}`;
-        forecastDay.querySelector('.forecast-day-month').textContent =
-            dateFormatted;
-        forecastDay.querySelector('.forecast-weekday').textContent =
-            weekdayFormatted;
-        forecastDay.querySelector('.forecast-temp-max').innerHTML =
-            `${Math.round(forecast[dataIndex].tempMax)}<sup>&deg;c</sup>`;
-        forecastDay.querySelector('.forecast-temp-min').innerHTML =
-            `${Math.round(forecast[dataIndex].tempMin)}<sup>&deg;c</sup>`;
-    });
-}
-
 export function newSetForecast({ forecast }) {
     console.log(forecast);
     const container = document.getElementById('forecastContainer');
+    const daysNumberText = document.getElementById('forecastDaysNumber');
+    daysNumberText.textContent = `${forecast.length - 1}-days forecast`;
     container.innerHTML = '';
     forecast.slice(1).forEach((dayData) => {
         const date = new Date(dayData.date);
@@ -88,6 +63,13 @@ export function newSetForecast({ forecast }) {
         `;
         container.appendChild(forecastRow);
     });
+    if (forecast.length <= 8) {
+        const forecastFooter = document.createElement('span');
+        forecastFooter.className =
+            'block text-xs text-center opacity-70 hover:opacity-100';
+        forecastFooter.textContent = 'Choose more days!';
+        container.appendChild(forecastFooter);
+    }
 }
 
 // Silly useless function but it itched my brain

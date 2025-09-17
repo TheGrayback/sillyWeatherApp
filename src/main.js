@@ -1,6 +1,6 @@
 import { getCoordinates, getWeather } from './api';
 import { mapWeatherApiResponse } from './apiAdapter';
-import { newSetForecast, setCurrentWeather, setForecast } from './ui';
+import { newSetForecast, setCurrentWeather } from './ui';
 
 lucide.createIcons();
 
