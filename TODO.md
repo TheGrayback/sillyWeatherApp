@@ -1,5 +1,19 @@
 # Weather App TODO
 
+
+## MVP Checklist (React-transition ready)
+
+- [ ] API request on page load
+- [ ] API request when changing forecast length
+- [x] Display current weather (icon, temperature, condition, location, date/time)
+- [x] Display forecast days dynamically (3 / 5 / 7 / 14)
+- [x] Skip current day in forecast
+- [x] Forecast card with scroll + placeholder ("Choose more days!") if needed
+- [x] Weather metrics card: humidity, pressure, wind (at least 3 metrics)
+- [ ] Handle invalid city input and API errors
+- [ ] Basic responsive layout for main cards
+
+
 ## Core Features
 
 - Add dynamic API request:
