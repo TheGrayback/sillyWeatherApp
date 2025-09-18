@@ -6,7 +6,7 @@
 }
 
 .card-background {
-    @apply relative overflow-hidden;
+    @apply relative overflow-hidden bg-black/30;
 }
 
 .card-background::before {
@@ -15,7 +15,7 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
-    filter: blur(15px);
+    filter: blur(10px);
     position: absolute;
     inset: 0;
     z-index: -1;
