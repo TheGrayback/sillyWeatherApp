@@ -22,5 +22,6 @@ cityInput.addEventListener('keydown', async (event) => {
         setCurrentWeather(weatherData);
         newSetForecast(weatherData);
         setAdditionalWeatherConditions(weatherData)
+        lucide.createIcons();
     }
 });

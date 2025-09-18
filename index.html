@@ -202,11 +202,11 @@
                 </section>
                 <!-- Weather details card (extra metrics: humidity, radiation, etc.) -->
                 <section
-                    class="card-background col-span-8 grid grid-cols-3 gap-2 rounded-3xl p-2 text-white"
+                    class="card-background col-span-8 grid grid-cols-3 gap-1 rounded-3xl p-2 text-white"
                 >
                     <!-- Solar radiation (UV) card -->
                     <div
-                        class="col-span-1 flex w-[285px] flex-col place-self-center rounded-2xl bg-white/10 p-2"
+                        class="col-span-1 flex h-[110px] w-[290px] flex-col place-self-center rounded-2xl border border-white/20 bg-white/10 p-2 shadow-md backdrop-blur-lg"
                     >
                         <span
                             class="text-center text-xs font-semibold tracking-wide uppercase opacity-70"
@@ -228,7 +228,7 @@
                                     >8</span
                                 >
                                 <span
-                                    class="text-md font-bold text-violet-400"
+                                    class="text-md font-bold text-violet-600"
                                     id="UVIndexCategory"
                                     >Very High</span
                                 >
@@ -241,46 +241,173 @@
                             sunglasses</span
                         >
                     </div>
-
                     <!-- Wind card -->
-                    <div class="col-span-1 flex flex-col place-self-center">
-                        <img
-                            src="weather-icons/large/uv-index-1.svg'"
-                            alt="UV-Index-1"
-                        />
-                        <span></span>
+                    <div
+                        class="col-span-1 flex h-[110px] w-[290px] flex-col place-self-center rounded-2xl border border-white/20 bg-white/10 p-2 shadow-md backdrop-blur-lg"
+                    >
+                        <span
+                            class="text-center text-xs font-semibold tracking-wide uppercase opacity-70"
+                            >Wind</span
+                        >
+                        <div
+                            class="flex flex-row items-center justify-center gap-1"
+                        >
+                            <img
+                                src="/weather-icons/large/wind.svg"
+                                alt="Wind"
+                                class="h-15 w-15 text-white"
+                                id="WindIcon"
+                            />
+                            <div class="flex flex-col">
+                                <span class="text-2xl font-bold" id="WindSpeed"
+                                    >12 km/h</span
+                                >
+                                <span
+                                    class="text-md font-bold text-cyan-400"
+                                    id="WindDirection"
+                                    >NE</span
+                                >
+                            </div>
+                        </div>
+                        <span
+                            class="text-center text-xs opacity-70"
+                            id="WindHint"
+                            >Breezy conditions</span
+                        >
                     </div>
                     <!-- Apparent temperature card -->
-                    <div class="col-span-1 flex flex-col place-self-center">
-                        <img
-                            src="weather-icons/large/uv-index-1.svg'"
-                            alt="UV-Index-1"
-                        />
-                        <span></span>
+                    <div
+                        class="col-span-1 flex h-[110px] w-[290px] flex-col place-self-center rounded-2xl border border-white/20 bg-white/10 p-2 shadow-md backdrop-blur-lg"
+                    >
+                        <span
+                            class="text-center text-xs font-semibold tracking-wide uppercase opacity-70"
+                            >Feels Like</span
+                        >
+                        <div
+                            class="flex flex-row items-center justify-center gap-1"
+                        >
+                            <img
+                                src="/weather-icons/large/thermometer.svg"
+                                alt="Apparent temperature"
+                                class="h-15 w-15"
+                                id="AppTempIcon"
+                            />
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-2xl font-bold"
+                                    id="AppTempValue"
+                                    >30°C</span
+                                >
+                            </div>
+                        </div>
+                        <span
+                            class="text-center text-xs opacity-70"
+                            id="AppTempHint"
+                            >Feels warmer due to humidity</span
+                        >
                     </div>
                     <!-- Visibility card-->
-                    <div class="col-span-1 flex flex-col place-self-center">
-                        <img
-                            src="weather-icons/large/uv-index-1.svg'"
-                            alt="UV-Index-1"
-                        />
-                        <span></span>
+                    <div
+                        class="col-span-1 flex h-[110px] w-[290px] flex-col place-self-center rounded-2xl border border-white/20 bg-white/10 p-2 shadow-md backdrop-blur-lg"
+                    >
+                        <span
+                            class="text-center text-xs font-semibold tracking-wide uppercase opacity-70"
+                            >Visibility</span
+                        >
+                        <div
+                            class="flex flex-row items-center justify-center gap-1 mt-auto"
+                        >
+                            <i
+                                data-lucide="eye"
+                                class="h-10 w-10 text-white"
+                                id="VisibilityIcon"
+                                alt="Visibility"
+                            ></i>
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-2xl font-bold"
+                                    id="VisibilityValue"
+                                    >10 km</span
+                                >
+                            </div>
+                        </div>
+                        <span
+                            class="text-center text-xs opacity-70 mt-auto"
+                            id="VisibilityHint"
+                            >Good visibility for driving</span
+                        >
                     </div>
                     <!-- Sunrise/sunset card-->
-                    <div class="col-span-1 flex flex-col place-self-center">
-                        <img
-                            src="weather-icons/large/uv-index-1.svg'"
-                            alt="UV-Index-1"
-                        />
-                        <span></span>
+                    <div
+                        class="col-span-1 flex h-[110px] w-[290px] flex-col place-self-center rounded-2xl border border-white/20 bg-white/10 p-2 shadow-md backdrop-blur-lg"
+                    >
+                        <span
+                            class="text-center text-xs font-semibold tracking-wide uppercase opacity-70"
+                            >Sunrise / Sunset</span
+                        >
+                        <div
+                            class="flex flex-row items-center justify-center gap-1"
+                        >
+                            <img
+                                src="/weather-icons/large/sunrise.svg"
+                                alt="Sunrise"
+                                class="h-15 w-15"
+                                id="SunriseIcon"
+                            />
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-2xl font-bold"
+                                    id="SunriseTime"
+                                    >06:12</span
+                                >
+                                <span
+                                    class="text-md font-bold text-yellow-400"
+                                    id="SunsetTime"
+                                    >18:45</span
+                                >
+                            </div>
+                        </div>
+                        <span
+                            class="text-center text-xs opacity-70"
+                            id="SunHint"
+                            >Daylight duration: 12h 33m</span
+                        >
                     </div>
                     <!-- Humidity card-->
-                    <div class="col-span-1 flex flex-col place-self-center">
-                        <img
-                            src="weather-icons/large/uv-index-1.svg'"
-                            alt="UV-Index-1"
-                        />
-                        <span></span>
+                    <div
+                        class="col-span-1 flex h-[110px] w-[290px] flex-col place-self-center rounded-2xl border border-white/20 bg-white/10 p-2 shadow-md backdrop-blur-lg"
+                    >
+                        <span
+                            class="text-center text-xs font-semibold tracking-wide uppercase opacity-70"
+                            >Humidity</span
+                        >
+                        <div
+                            class="flex flex-row items-center justify-center gap-1"
+                        >
+                            <img
+                                src="/weather-icons/large/humidity.svg"
+                                alt="Humidity"
+                                class="h-15 w-15"
+                                id="HumidityIcon"
+                            />
+                            <div class="flex flex-col">
+                                <span
+                                    class="text-2xl font-bold"
+                                    id="HumidityValue"
+                                    >65%</span
+                                >
+                                <span
+                                    class="text-md font-bold text-blue-400"
+                                    id="HumidityCategory"
+                                    >Moderate</span
+                                >
+                            </div>
+                        </div>
+                        <span
+                            class="text-center text-xs opacity-70"
+                            id="HumidityHint"
+                            >Comfortable for most activities</span
+                        >
                     </div>
                 </section>
                 <!-- Weekly forecast card -->

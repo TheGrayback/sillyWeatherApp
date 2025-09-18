@@ -4,14 +4,14 @@ export const uvIndexCodes = {
         alt: 'UV-Index 1',
         category: 'Low',
         hint: 'Minimal protection required',
-        color: "text-green-400"
+        color: "text-green-500"
     },
     2: {
         icon: 'weather-icons/large/uv-index-2.svg',
         alt: 'UV-Index 2',
         category: 'Low',
         hint: 'Minimal protection required',
-        color: "text-green-400"
+        color: "text-green-500"
     },
     3: {
         icon: 'weather-icons/large/uv-index-3.svg',
@@ -75,6 +75,6 @@ export const uvIndexCodes = {
         alt: 'UV-Index 11',
         category: 'Extreme',
         hint: 'Take all precautions, avoid being outdoors',
-        color: "text-violet-400"
+        color: "text-violet-600"
     },
 };

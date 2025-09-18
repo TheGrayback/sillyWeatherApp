@@ -2,9 +2,14 @@ export function mapWeatherApiResponse(weatherResponse, coordinates) {
     return {
         current: {
             temp: weatherResponse.current.temperature_2m,
+            apparentTemp: weatherResponse.current.apparent_temperature,
             unit: weatherResponse.current_units.temperature_2m,
             code: weatherResponse.current.weather_code,
             time: weatherResponse.current.time,
+            windDirection: weatherResponse.current.wind_direction_10m,
+            windSpeed: weatherResponse.current.wind_speed_10m,
+            visibility: weatherResponse.current.visibility,
+            relativeHumidity: weatherResponse.current.relative_humidity_2m,
         },
         location: {
             city: coordinates.name,
@@ -19,5 +24,6 @@ export function mapWeatherApiResponse(weatherResponse, coordinates) {
             sunrise: weatherResponse.daily.sunrise[index],
             sunset: weatherResponse.daily.sunset[index],
         })),
+        hourly: {},
     };
 }

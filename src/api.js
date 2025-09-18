@@ -24,7 +24,7 @@ export async function getWeather(lat, lon, forecastDays = 8) {
         params: {
             latitude: lat,
             longitude: lon,
-            current: 'weather_code,temperature_2m',
+            current: 'weather_code,temperature_2m,wind_speed_10m,wind_direction_10m,apparent_temperature,visibility,relative_humidity_2m',
             forecast_days: forecastDays,
             timezone: 'auto',
             daily: 'temperature_2m_max,temperature_2m_min,weather_code,uv_index_max,sunrise,sunset',
