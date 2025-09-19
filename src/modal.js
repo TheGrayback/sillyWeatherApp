@@ -5,7 +5,7 @@ export function renderCityList(cities, onCitySelected) {
     cities.forEach((city) => {
         const cityItem = document.createElement('div');
         cityItem.className = `
-            flex items-center justify-between p-2 rounded-lg bg-gray-700 hover:bg-gray-600 cursor-pointer
+            flex items-center justify-between p-2 rounded-lg bg-gray-700 hover:bg-gray-600 cursor-pointer text-center
         `;
 
         const flagImg = document.createElement('img');
@@ -15,7 +15,7 @@ export function renderCityList(cities, onCitySelected) {
 
         const cityName = document.createElement('span');
         cityName.textContent = `${city.name}, ${city.admin1 || city.country}`;
-        cityName.className = 'text-white font-medium';
+        cityName.className = 'text-center text-white font-medium';
 
         cityItem.addEventListener('click', () => {
             onCitySelected(city);
