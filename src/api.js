@@ -40,7 +40,7 @@ export async function getWeather(
 
 export async function getCityByLatLon(latitude, longitude) {
     const response = await axios.get(
-        'http://api.openweathermap.org/geo/1.0/reverse',
+        'https://api.openweathermap.org/geo/1.0/reverse',
         {
             params: {
                 lat: latitude,
