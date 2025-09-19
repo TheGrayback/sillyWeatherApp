@@ -13,7 +13,7 @@ export function mapWeatherApiResponse(weatherResponse, coordinates) {
         },
         location: {
             city: coordinates.name,
-            country: coordinates.country_code,
+            country: coordinates.country_code || coordinates.country,
         },
         forecast: weatherResponse.daily.time.map((date, index) => ({
             date,

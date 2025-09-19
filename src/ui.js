@@ -15,7 +15,7 @@ export function setCurrentWeather({ current, location }) {
     setTime(current.time);
 }
 
-export function newSetForecast({ forecast }) {
+export function setForecast({ forecast }) {
     const container = document.getElementById('forecastContainer');
     const daysNumberText = document.getElementById('forecastDaysNumber');
     daysNumberText.textContent = `${forecast.length - 1}-days forecast`;
@@ -77,29 +77,27 @@ export function newSetForecast({ forecast }) {
     }
 }
 
-export function setAdditionalWeatherConditions({ current, forecast, hourly }) {
+export function setAdditionalWeatherConditions({ current, forecast }) {
     setUVRadiation(forecast);
     setWindCondition(current);
     setApparentTemp(current);
     setVisibility(current);
     setSunsetSunrise(forecast);
     setHumidity(current);
-    setHourlyForecast(hourly);
 }
 
-export function setHourlyForecast(hourlyData, hoursToShow = 12) {
+export function setHourlyForecast({hourly}, hoursToShow = 12) {
     const container = document.getElementById('HourlyForecastContainer');
     container.innerHTML = ''; // очищаем старые блоки
 
     // если API прислал таймзону города — используем её, иначе по умолчанию UTC
-    const cityTimeZone = hourlyData.timezone || 'UTC';
+    const cityTimeZone = hourly.timezone || 'UTC';
 
-    const hoursNumber = document.getElementById('hourlyForecastDaysNumber')
-    hoursNumber.textContent = `${hourlyData.length}-hour forecast`;
+    const hoursNumber = document.getElementById('hourlyForecastDaysNumber');
+    hoursNumber.textContent = `${hourly.length}-hour forecast`;
 
-    hourlyData.forEach((hourData) => {
-        const currentHourCondition =
-            weatherCodeDescription[hourData.code].day;
+    hourly.forEach((hourData) => {
+        const currentHourCondition = weatherCodeDescription[hourData.code].day;
         const forecastTimeStr = hourData.time;
         const forecastTemp = hourData.temp;
 
