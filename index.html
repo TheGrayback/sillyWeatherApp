@@ -94,12 +94,13 @@
                         >
                             <!-- Base image -->
                             <button
-                                class="h-12 w-12 overflow-hidden rounded-full shadow-md hover:h-20 hover:w-20"
+                                class="h-12 w-12 overflow-hidden rounded-full shadow-md hover:h-20 hover:w-20 justify-center flex items-center border border-gray-500/50"
                             >
-                                <img
-                                    src="/profile-pictures/spurkl.jpg"
-                                    alt="User picture"
-                                />
+                                <i
+                                    data-lucide="user"
+                                    class="h-8 w-8 text-white"
+                                >
+                                </i>
                             </button>
                             <!-- Blured image -->
                             <div
@@ -152,7 +153,7 @@
                                     class="text-[60px] leading-tight"
                                     id="temperature-value"
                                 >
-                                    451<sup>&deg;F</sup>
+                                    ---
                                 </span>
                                 <!-- Weather condition -->
                                 <div class="inline-flex items-center gap-4">
@@ -165,7 +166,7 @@
                                         class="text-sm"
                                         id="weather-condition-description"
                                     >
-                                        Sunny
+                                        ---
                                     </span>
                                 </div>
                             </div>
@@ -473,7 +474,7 @@
                 >
                     <!-- Modal body -->
                     <div
-                        class="w-80 rounded-xl bg-gray-800 p-4 text-white flex flex-col"
+                        class="flex w-80 flex-col rounded-xl bg-gray-800 p-4 text-white"
                     >
                         <!-- Label for manual input -->
                         <label for="cityInput" class="mb-1 block opacity-40"
@@ -504,7 +505,7 @@
                         ></div>
                         <!-- Close modal button -->
                         <button
-                            class="block mt-4 w-full cursor-pointer rounded bg-blue-500 p-2"
+                            class="mt-4 block w-full cursor-pointer rounded bg-blue-500 p-2"
                             id="closeCityModalBtn"
                         >
                             Close
