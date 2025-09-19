@@ -32,5 +32,6 @@ The project is available on **GitHub Pages**:
 - Background images (for demonstration purposes only, non-commercial):  
   Arknights © Hypergryph  
   Genshin Impact © miHoYo
+- [Weather favicon by wineass](https://www.deviantart.com/wineass)
 
 
