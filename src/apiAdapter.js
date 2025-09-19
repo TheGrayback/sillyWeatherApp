@@ -24,6 +24,10 @@ export function mapWeatherApiResponse(weatherResponse, coordinates) {
             sunrise: weatherResponse.daily.sunrise[index],
             sunset: weatherResponse.daily.sunset[index],
         })),
-        hourly: {},
+        hourly: weatherResponse.hourly.time.map((time, index) => ({
+            time,
+            temp: weatherResponse.hourly.temperature_2m[index],
+            code: weatherResponse.hourly.weather_code[index],
+        })),
     };
 }

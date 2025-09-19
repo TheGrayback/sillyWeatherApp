@@ -18,7 +18,7 @@ export async function getCoordinates(city) {
     return { country_code, name, latitude, longitude };
 }
 
-export async function getWeather(lat, lon, forecastDays = 8) {
+export async function getWeather(lat, lon, forecastDays = 8, forecast_hours = 12) {
     forecastDays++;
     const response = await axios.get('https://api.open-meteo.com/v1/forecast', {
         params: {
@@ -26,8 +26,10 @@ export async function getWeather(lat, lon, forecastDays = 8) {
             longitude: lon,
             current: 'weather_code,temperature_2m,wind_speed_10m,wind_direction_10m,apparent_temperature,visibility,relative_humidity_2m',
             forecast_days: forecastDays,
+            forecast_hours: forecast_hours,
             timezone: 'auto',
             daily: 'temperature_2m_max,temperature_2m_min,weather_code,uv_index_max,sunrise,sunset',
+            hourly: 'temperature_2m,weather_code'
         },
     });
     console.log('Weather data: ', response.data);

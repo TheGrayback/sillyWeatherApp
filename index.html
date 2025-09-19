@@ -315,7 +315,7 @@
                             >Visibility</span
                         >
                         <div
-                            class="flex flex-row items-center justify-center gap-1 mt-auto"
+                            class="mt-auto flex flex-row items-center justify-center gap-1"
                         >
                             <i
                                 data-lucide="eye"
@@ -332,7 +332,7 @@
                             </div>
                         </div>
                         <span
-                            class="text-center text-xs opacity-70 mt-auto"
+                            class="mt-auto text-center text-xs opacity-70"
                             id="VisibilityHint"
                             >Good visibility for driving</span
                         >
@@ -417,8 +417,8 @@
                     >
                         <span id="forecastDaysNumber">7-days forecast</span>
                         <select
-                            name="forecastSize"
-                            id="forecastSize"
+                            name="weeklyForecastSize"
+                            id="weeklyForecastSize"
                             class="absolute right-0 rounded-2xl bg-[oklch(0.25_0_179)] p-[3px] pr-2 text-sm"
                         >
                             <option value="3">3 Days</option>
@@ -437,10 +437,43 @@
                         ></div>
                     </div>
                 </section>
-
-                <section
-                    class="card-background col-span-8 rounded-3xl"
-                ></section>
+                <!-- Hourly forecast card -->
+                <section class="col-span-8 flex flex-col gap-4">
+                    <!-- Hourly forecast controll bar -->
+                    <div
+                        class="text-md relative inline-flex h-5 justify-between text-white"
+                    >
+                        <span id="hourlyForecastDaysNumber"
+                            >12-hour forecast</span
+                        >
+                        <select
+                            name="hourlyForecastSize"
+                            id="hourlyForecastSize"
+                            class="absolute right-0 rounded-2xl bg-[oklch(0.25_0_179)] p-[3px] pr-2 text-sm"
+                        >
+                            <option value="12">12 hours</option>
+                            <option value="24">24 hours</option>
+                        </select>
+                    </div>
+                    <!-- Hourly Forecast Card -->
+                    <div class="card-background rounded-3xl">
+                        <div
+                            class="col-span-1 flex h-[250px] w-[100%] flex-col place-self-center rounded-2xl text-white shadow-md backdrop-blur-lg p-4"
+                        >
+                            <!-- Card label -->
+                            <span
+                                class="text-center text-xs font-semibold tracking-wide uppercase opacity-70"
+                            >
+                                Hourly Forecast
+                            </span>
+                            <!-- Hourly card container -->
+                            <div
+                                id="HourlyForecastContainer"
+                                class="custom-scrollbar flex flex-row gap-4 overflow-x-auto px-2 py-4"
+                            ></div>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
         <script type="module" src="/src/main.js"></script>

@@ -1,7 +1,10 @@
 import { uvIndexCodes } from './utils/uvIndexCodes';
 import { visibilityConditions } from './utils/visibilityConditions';
 import { weatherCodeDescription } from './utils/weatherCodes';
-import { getBeaufortCategory, getWindDirectionFull } from './utils/windConditions';
+import {
+    getBeaufortCategory,
+    getWindDirectionFull,
+} from './utils/windConditions';
 
 const BASE_URL = import.meta.env.BASE_URL;
 
@@ -74,13 +77,54 @@ export function newSetForecast({ forecast }) {
     }
 }
 
-export function setAdditionalWeatherConditions({ current, forecast }) {
+export function setAdditionalWeatherConditions({ current, forecast, hourly }) {
     setUVRadiation(forecast);
     setWindCondition(current);
     setApparentTemp(current);
     setVisibility(current);
     setSunsetSunrise(forecast);
     setHumidity(current);
+    setHourlyForecast(hourly);
+}
+
+export function setHourlyForecast(hourlyData, hoursToShow = 12) {
+    const container = document.getElementById('HourlyForecastContainer');
+    container.innerHTML = ''; // очищаем старые блоки
+
+    // если API прислал таймзону города — используем её, иначе по умолчанию UTC
+    const cityTimeZone = hourlyData.timezone || 'UTC';
+
+    const hoursNumber = document.getElementById('hourlyForecastDaysNumber')
+    hoursNumber.textContent = `${hourlyData.length}-hour forecast`;
+
+    hourlyData.forEach((hourData) => {
+        const currentHourCondition =
+            weatherCodeDescription[hourData.code].day;
+        const forecastTimeStr = hourData.time;
+        const forecastTemp = hourData.temp;
+
+        // Преобразуем в локальное время города (не пользователя!)
+        const date = new Date(forecastTimeStr);
+        const hourLabel = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+        }).format(date);
+
+        const item = document.createElement('div');
+        item.className =
+            'flex w-[130px] flex-shrink-0 flex-col items-center justify-between rounded-2xl bg-white/10 p-3 text-white shadow-md';
+
+        item.innerHTML = `
+            <span class="text-lg font-medium opacity-70">${hourLabel}</span>
+            <img src="${BASE_URL}${currentHourCondition.largeIcon}" 
+                 alt="${currentHourCondition.description}" 
+                 class="h-20 w-20" />
+            <span class="text-2xl font-bold">${forecastTemp}°</span>
+        `;
+
+        container.appendChild(item);
+    });
 }
 
 function setUVRadiation(forecast) {
